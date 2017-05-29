@@ -4,7 +4,7 @@
       <label>Search </label><input v-model.trim="search"><span class="searchCount">{{ depts.length }} results</span>
       </div>
       <label>Department: </label>
-      <select class="departmentScrolldown" name="DepartmentID" v-model="selectedID">
+      <select class="departmentScrolldown" name="DepartmentID" v-model="selectedID" v-if="!loadingRouteData">
           <department-option v-for="dept in depts" :dept="dept" :key="dept.ID"></department-option>
       </select>
           <input class="goButton" type="button" v-on:click="changeDepts" value="Go">
@@ -17,6 +17,7 @@ export default {
   name: 'departmentsVue',
   data () {
     return {
+      loadingRouteData:true,
       msg: 'Department search',
       unfiltered:[],
       depts:[],
@@ -83,6 +84,7 @@ export default {
     created: function() {
         $.getJSON('/ajax/getDepartments.php')
             .done(data => {
+                this.loadingRouteData = false;
                 if(this.deptID !== null)
                 {
                     this.selectedID = this.deptID;

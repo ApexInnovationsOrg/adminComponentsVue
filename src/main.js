@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Orgs from './org.vue'
 import Dept from './deptDropdown.vue'
+import Leads from './leadPlacement.vue'
 
 
 new Vue({
@@ -13,3 +14,7 @@ new Vue({
 	render:h => h(Dept)
 })
 
+new Vue({
+	el:'#leadComponentVue',
+	render:h => h(Leads)
+})
