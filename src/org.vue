@@ -12,7 +12,7 @@
                     
                     </div>
                 </div>
-                <div>Has seats: <input type="checkbox" id="hideCheckbox" v-model="hasseats"/><input class="goButton" type="button" v-on:click="changeOrgs" value="Go"></div>
+                <div>Has active licenses: <input type="checkbox" id="hideCheckbox" v-model="hasactive"/><input class="goButton" type="button" v-on:click="changeOrgs" value="Go"></div>
 
                 </div>
 </template>
@@ -27,7 +27,7 @@ export default {
       msg: 'Organizations',
       unfiltered:[],
       orgs:[],
-      hasseats:true,
+      hasactive:true,
       search:'',
       orgID:utils.findGetParam('ID'),
       selectedID:'-1'
@@ -40,7 +40,7 @@ export default {
     search:function(){
         this.searchOrgs();
     },
-    hasseats:function(){
+    hasactive:function(){
         this.searchOrgs();
     }
   },
@@ -48,7 +48,7 @@ export default {
     searchOrgs:function(){
         this.orgs = this.unfiltered.filter(org=>{
             var filter = false;
-            if(this.hasseats)
+            if(this.hasactive)
             {
                 filter = org.Name.toLowerCase().indexOf(this.search.toLowerCase()) > -1 && org.HasActiveSeats === 'true';
             }
