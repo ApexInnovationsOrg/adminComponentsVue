@@ -50,7 +50,7 @@ export default {
             var filter = false;
             if(this.hasactive)
             {
-                filter = org.Name.toLowerCase().indexOf(this.search.toLowerCase()) > -1 && org.HasActiveSeats === 'true';
+                filter = org.Name.toLowerCase().indexOf(this.search.toLowerCase()) > -1 && org.HasActive === 'true';
             }
             else
             {
