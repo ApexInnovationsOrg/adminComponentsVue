@@ -1,6 +1,6 @@
 <template>
 
-    <option v-if="org.HasActive == 'false'" class="noActive" :value="org.ID">{{org.Name}}</option>
+    <option v-if="org.HasActiveSeats == 'false'" class="noActiveSeats" :value="org.ID">{{org.Name}}</option>
     <option v-else :value="org.ID">{{org.Name}}</option>
 </template>
 
@@ -12,7 +12,7 @@
 </script>
 
 <style scoped>
-.noActive{
+.noActiveSeats{
     color:#bf0000;
 }
 </style>
