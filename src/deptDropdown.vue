@@ -69,7 +69,11 @@ export default {
         });
     },
     changeDepts:function(){
+      if(this.orgName == "LMS"){
+        window.location.href = '/admin/EditLMS.php?ID=' + this.selectedID;
+      }else{
         window.location.href = '/admin/Departments.php?ID=' + this.selectedID;
+      }
     },
     getOrgName:function(){
       var tempOrg = '';
