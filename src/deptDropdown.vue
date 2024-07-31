@@ -73,7 +73,8 @@ export default {
           if(this.selectedID > 0){
             let userDept = this.depts.find(obj => obj.ID == this.selectedID);
             let indexLoc = this.depts.indexOf(userDept);
-            this.depts = this.depts.splice(indexLoc - (this.maxAllowedSize/2),this.maxAllowedSize);
+            let minIndex = indexLoc - (this.maxAllowedSize/2) < 0 ? 0 : indexLoc - (this.maxAllowedSize/2);
+            this.depts = this.depts.splice(minIndex,this.maxAllowedSize);
           }else{
             this.depts = this.depts.splice(0,this.maxAllowedSize);
           }
